@@ -21,7 +21,7 @@ export const GATE_CONTENT = {
 
 /* ── Scene 1: Peace (Opening Night Shore) ── */
 export const SHORE_CONTENT = {
-  headerTitle: 'For Surabhi, With Love',
+  headerTitle: 'For Surabhi',
   openingMarathi: 'तुझ्या मनात कितीही मोठी स्वप्नं असली, तरी आजची ही संध्याकाळ फक्त तुझ्यासाठी आहे. थोडं थांब, स्वतःसाठी जग आणि तुझ्या प्रवासाचा आनंद घे.',
   reflectionMarathi: 'काही स्वप्नं मोठी असतात, काही वाटा कठीण असतात. पण त्या प्रवासात स्वतःला जपायला विसरू नकोस.',
   englishQuote: 'Tonight, this calm sea holds space for you to breathe, reflect, and celebrate who you are.',
