@@ -1295,26 +1295,30 @@
 /* ── Scene 7: Sky Lanterns & Sandcastle Cake ───────────────────────────────── */
 .lanterns-scene {
   background: rgba(22, 14, 28, 0.45);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   min-height: 100svh;
+  min-height: 100dvh;
   overflow: hidden;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: clamp(70px, 10vh, 100px) 16px;
+  box-sizing: border-box;
 }
 
 .lanterns-container {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
+  overflow: hidden;
 }
 
 .lantern {
   position: absolute;
-  bottom: 0;
+  bottom: -70px;
   background: none;
   border: none;
   cursor: pointer;
@@ -1322,6 +1326,33 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation-name: lanternFloatUp;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  transition: transform 0.2s ease;
+  will-change: transform;
+  z-index: 5;
+}
+
+.lantern:active, .lantern:hover {
+  transform: scale(1.18);
+}
+
+@keyframes lanternFloatUp {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.95;
+  }
+  85% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateY(calc(-100svh - 90px)) scale(1.05);
+    opacity: 0;
+  }
 }
 
 .lantern-body {
@@ -1393,26 +1424,109 @@
   line-height: 1.6;
 }
 
+.lanterns-quick-select {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(246, 207, 122, 0.2);
+}
+
+.wish-orb-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(246, 207, 122, 0.15);
+  border: 1px solid rgba(246, 207, 122, 0.5);
+  color: var(--gold-300);
+  font-weight: 700;
+  font-size: 0.82rem;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  box-shadow: 0 0 10px rgba(246, 207, 122, 0.2);
+  touch-action: manipulation;
+}
+
+.wish-orb-btn:hover, .wish-orb-btn:active {
+  background: var(--gold-300);
+  color: var(--night-900);
+  transform: scale(1.15);
+  box-shadow: 0 0 18px rgba(246, 207, 122, 0.6);
+}
+
 /* Wish Overlay */
 .wish-overlay {
   position: fixed;
   inset: 0;
   z-index: var(--z-modal);
-  background: rgba(7, 11, 26, 0.82);
-  backdrop-filter: blur(12px);
+  background: rgba(7, 11, 26, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: clamp(16px, 4vw, 24px);
+  box-sizing: border-box;
+}
+
+.wish-backdrop {
+  position: absolute;
+  inset: 0;
 }
 
 .wish-card {
-  width: min(520px, 92vw);
+  position: relative;
+  z-index: 2;
+  width: min(520px, calc(100vw - 32px));
+  background: #0d1530;
+  border: 1.5px solid rgba(246, 207, 122, 0.45);
+  border-radius: 20px;
   padding: clamp(24px, 5vw, 36px);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
+  box-shadow: 0 24px 70px rgba(0,0,0,0.9), 0 0 40px rgba(246,207,122,0.2);
+  box-sizing: border-box;
+}
+
+.wish-close-x {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: var(--sand-300);
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  touch-action: manipulation;
+}
+
+.wish-close-x:hover, .wish-close-x:active {
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.wish-scroll-hint {
+  font-size: 0.75rem;
+  color: var(--sand-300);
+  opacity: 0.7;
+  margin-top: -4px;
 }
 
 .wish-header {
@@ -1472,15 +1586,16 @@
 /* ── Cake Scene ── */
 .cake-scene {
   background: rgba(7, 11, 26, 0.5);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   min-height: 100svh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--space-8) var(--space-4);
+  padding: clamp(80px, 10vh, 120px) 16px;
   gap: var(--space-4);
+  position: relative;
+  box-sizing: border-box;
 }
 
 .sandcastle-wrap {
@@ -1600,18 +1715,18 @@
   color: var(--night-900);
 }
 
-/* ── Scene 8: Sincere Letter from Your Best Friend ─────────────────────────── */
 .letter-scene {
   background: rgba(7, 11, 26, 0.55);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   min-height: 100svh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: var(--space-10) var(--space-4);
+  padding: clamp(80px, 10vh, 120px) 16px clamp(100px, 12vh, 140px);
   gap: var(--space-5);
+  position: relative;
+  box-sizing: border-box;
 }
 
 .letter-paper {
@@ -1939,12 +2054,22 @@
   }
 
   /* Lanterns Scene */
+  .lanterns-scene {
+    min-height: 100svh;
+    min-height: 100dvh;
+    padding: clamp(64px, 8vh, 80px) 14px clamp(64px, 8vh, 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   .lanterns-center-content {
-    padding: 0 12px;
+    padding: 0 4px;
+    width: 100%;
   }
 
   .marathi-greeting-card {
-    padding: 18px 14px;
+    padding: 20px 14px;
   }
 
   .marathi-greeting {
@@ -1953,8 +2078,13 @@
 
   /* Cake Scene */
   .cake-scene {
-    padding: 56px 14px 36px;
+    min-height: 100svh;
+    min-height: 100dvh;
+    padding: clamp(64px, 8vh, 90px) 14px clamp(70px, 9vh, 100px);
     gap: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .sandcastle-wrap {
@@ -1962,13 +2092,19 @@
   }
 
   .candle-message-box {
-    padding: 18px 14px;
+    padding: 20px 14px;
+    margin-top: 14px;
   }
 
   /* Letter Scene */
   .letter-scene {
-    padding: 56px 14px 36px;
+    min-height: 100svh;
+    min-height: 100dvh;
+    padding: clamp(64px, 8vh, 90px) 14px clamp(90px, 12vh, 130px);
     gap: var(--space-3);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .letter-paper {

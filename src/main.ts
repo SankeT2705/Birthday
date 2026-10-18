@@ -18,7 +18,7 @@ import { renderBlueprint, initBlueprint } from './scenes/blueprint';
 import { renderWheel, initWheel } from './scenes/wheel';
 import { renderFaith, initFaith } from './scenes/faith';
 import { renderSunrise, initSunrise } from './scenes/sunrise';
-import { renderLanterns, initLanterns } from './scenes/lanterns';
+import { renderLanterns, initLanterns, renderWishOverlay } from './scenes/lanterns';
 import { renderCake, initCake } from './scenes/cake';
 import { renderLetter, initLetter } from './scenes/letter';
 
@@ -43,6 +43,9 @@ app.innerHTML = `
 
   <!-- Confetti Layer -->
   <div id="confetti-container" class="confetti-canvas" aria-hidden="true"></div>
+
+  <!-- Global Wish Overlay Modal -->
+  ${renderWishOverlay()}
 
   <!-- Scene 0: Welcome Gate Overlay -->
   ${renderGate()}

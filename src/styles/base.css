@@ -39,11 +39,7 @@ body.gate-active, html.gate-active {
   touch-action: none !important;
 }
 
-body.modal-open, html.modal-open {
-  overflow: hidden !important;
-}
-
-button, a, input, [role="button"], .bottle, .lantern, .switch-btn, .stage-tab-btn {
+button, a, input, [role="button"], .bottle, .lantern, .switch-btn, .stage-tab-btn, .wish-orb-btn {
   touch-action: manipulation;
 }
 
@@ -72,20 +68,22 @@ html.lenis, html.lenis body {
   z-index: 10;
   width: 100%;
   min-height: 100svh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: safe center;
-  padding: clamp(64px, 8vw, 100px) clamp(16px, 4vw, 32px);
+  justify-content: center;
+  padding: clamp(70px, 10vh, 100px) clamp(16px, 4vw, 32px);
   box-sizing: border-box;
   overflow-x: clip;
 }
 
 @media (max-width: 768px) {
   .scene {
-    min-height: auto;
-    padding: 64px 16px 56px;
-    justify-content: flex-start;
+    min-height: 100svh;
+    min-height: 100dvh;
+    padding: clamp(64px, 8vh, 88px) 16px;
+    justify-content: center;
   }
 }
 
