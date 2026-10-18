@@ -116,8 +116,6 @@ export function initLanterns(): void {
     if (counterEl) counterEl.textContent = `Wish ${String(index + 1).padStart(2, '0')} of ${LANTERN_WISHES.length}`;
 
     isWishOpen = true;
-    document.body.classList.add('wish-open');
-    document.getElementById('sound-toggle')?.classList.add('sound-hidden-modal');
     safeOverlay.style.display = 'flex';
     safeOverlay.setAttribute('aria-hidden', 'false');
     safeOverlay.style.opacity = '0';
@@ -132,8 +130,6 @@ export function initLanterns(): void {
   function hideWish() {
     if (!isWishOpen) return;
     isWishOpen = false;
-    document.body.classList.remove('wish-open');
-    document.getElementById('sound-toggle')?.classList.remove('sound-hidden-modal');
     safeOverlay.style.opacity = '0';
     setTimeout(() => {
       if (!isWishOpen) {

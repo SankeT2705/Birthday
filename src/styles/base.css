@@ -213,25 +213,12 @@ h1, h2, h3 {
   justify-content: center;
   font-size: 1.25rem;
   color: var(--sand-100);
-  transition: opacity 0.25s var(--ease-out), transform 0.25s var(--ease-out), visibility 0.25s;
+  transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out);
 }
 
 #sound-toggle:hover {
   opacity: 0.8;
   transform: scale(1.08);
-}
-
-/* Hide sound toggle when any modal or overlay is open so it NEVER collides with modal close buttons */
-body.modal-open #sound-toggle,
-body.wish-open #sound-toggle,
-#sound-toggle.sound-hidden-modal,
-body:has(#polaroid-layer.active) #sound-toggle,
-body:has(#polaroid-layer:not([style*="display: none"])) #sound-toggle,
-body:has(.wish-overlay[style*="display: flex"]) #sound-toggle {
-  opacity: 0 !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-  transform: scale(0.65) !important;
 }
 
 /* ── Text utilities ── */
