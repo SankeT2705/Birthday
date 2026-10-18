@@ -136,6 +136,7 @@ export function initBottles(): void {
     updateCard(index);
     getLenis()?.stop();
     document.body.classList.add('modal-open');
+    document.getElementById('sound-toggle')?.classList.add('sound-hidden-modal');
     layer!.style.display = 'flex';
     layer!.setAttribute('aria-hidden', 'false');
     requestAnimationFrame(() => {
@@ -148,6 +149,7 @@ export function initBottles(): void {
     isOpen = false;
     getLenis()?.start();
     document.body.classList.remove('modal-open');
+    document.getElementById('sound-toggle')?.classList.remove('sound-hidden-modal');
     layer!.classList.remove('active');
     layer!.setAttribute('aria-hidden', 'true');
     setTimeout(() => {
