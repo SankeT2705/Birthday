@@ -192,11 +192,39 @@ export function initWheel(): void {
     selectVirtue(currentIdx + 1);
   });
 
-  // Tap dots directly
-  dotsContainer?.querySelectorAll('.v-dot').forEach((dot, index) => {
-    dot.addEventListener('click', (e) => {
+  // Direct spoke tap interaction
+  document.querySelectorAll<SVGElement>('.spoke-group').forEach((spoke) => {
+    spoke.style.cursor = 'pointer';
+    spoke.addEventListener('click', (e) => {
       e.stopPropagation();
-      selectVirtue(index);
+      const spokeIdx = parseInt(spoke.dataset.spokeIndex || '0', 10);
+      const virtueIdx = Math.floor(spokeIdx / 3) % virtues.length;
+      selectVirtue(virtueIdx);
     });
   });
+
+  // Touch swipe support on virtue card for mobile flicking
+  const virtueCard = document.getElementById('virtue-card');
+  let vTouchStartX = 0;
+  let vTouchStartY = 0;
+  virtueCard?.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      vTouchStartX = e.touches[0].clientX;
+      vTouchStartY = e.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  virtueCard?.addEventListener('touchend', (e) => {
+    if (e.changedTouches.length === 1) {
+      const deltaX = e.changedTouches[0].clientX - vTouchStartX;
+      const deltaY = e.changedTouches[0].clientY - vTouchStartY;
+      if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY) * 1.3) {
+        if (deltaX < 0) {
+          selectVirtue(currentIdx + 1);
+        } else {
+          selectVirtue(currentIdx - 1);
+        }
+      }
+    }
+  }, { passive: true });
 }

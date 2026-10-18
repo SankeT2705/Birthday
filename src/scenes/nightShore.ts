@@ -84,6 +84,15 @@ export function initNightShore(): void {
   const ripples: Ripple[] = [];
   const RIPPLE_COLORS = ['rgba(246, 207, 122, ', 'rgba(47, 127, 134, ', 'rgba(242, 134, 107, '];
 
+  let isLoopRunning = false;
+
+  function scheduleAnimate() {
+    if (!isLoopRunning) {
+      isLoopRunning = true;
+      requestAnimationFrame(animate);
+    }
+  }
+
   function addRipple(x: number, y: number) {
     const rect = section!.getBoundingClientRect();
     const relX = x - rect.left;
@@ -98,6 +107,8 @@ export function initNightShore(): void {
       alpha: 0.8,
       color,
     });
+
+    scheduleAnimate();
   }
 
   // Pointer / Touch listener
@@ -111,8 +122,14 @@ export function initNightShore(): void {
     }
   });
 
-  // Animation loop
+  // Animation loop (runs on-demand to save mobile battery and GPU)
   function animate() {
+    if (ripples.length === 0) {
+      ctx!.clearRect(0, 0, width, height);
+      isLoopRunning = false;
+      return;
+    }
+
     ctx!.clearRect(0, 0, width, height);
 
     for (let i = ripples.length - 1; i >= 0; i--) {
@@ -143,6 +160,4 @@ export function initNightShore(): void {
 
     requestAnimationFrame(animate);
   }
-
-  animate();
 }

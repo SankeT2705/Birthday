@@ -274,7 +274,19 @@ export function initSeaRenderer(container: HTMLElement): SeaRenderer | null {
       currentTiltY = y;
     });
 
+    let isTabVisible = !document.hidden;
+    const onVisibilityChange = () => {
+      isTabVisible = !document.hidden;
+      if (isTabVisible) {
+        clock.getDelta(); // reset delta to avoid time jumps
+        cancelAnimationFrame(animId);
+        animId = requestAnimationFrame(animate);
+      }
+    };
+    document.addEventListener('visibilitychange', onVisibilityChange);
+
     function animate() {
+      if (!isTabVisible) return;
       animId = requestAnimationFrame(animate);
       const elapsed = clock.getElapsedTime();
       const delta = clock.getDelta();
@@ -356,6 +368,7 @@ export function initSeaRenderer(container: HTMLElement): SeaRenderer | null {
         cancelAnimationFrame(animId);
         unsubTilt();
         window.removeEventListener('resize', onResize);
+        document.removeEventListener('visibilitychange', onVisibilityChange);
         renderer.dispose();
         renderer.domElement.remove();
       },

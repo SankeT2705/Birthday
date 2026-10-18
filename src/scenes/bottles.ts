@@ -206,6 +206,31 @@ export function initBottles(): void {
     closeModal();
   });
 
+  // Touch swipe gesture support for mobile photo navigation
+  let touchStartX = 0;
+  let touchStartY = 0;
+  card.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }
+  }, { passive: true });
+
+  card.addEventListener('touchend', (e) => {
+    if (e.changedTouches.length === 1) {
+      const deltaX = e.changedTouches[0].clientX - touchStartX;
+      const deltaY = e.changedTouches[0].clientY - touchStartY;
+      // Trigger if swipe is > 45px and predominantly horizontal
+      if (Math.abs(deltaX) > 45 && Math.abs(deltaX) > Math.abs(deltaY) * 1.3) {
+        if (deltaX < 0) {
+          updateCard(currentIndex + 1);
+        } else {
+          updateCard(currentIndex - 1);
+        }
+      }
+    }
+  }, { passive: true });
+
   // Keyboard navigation
   window.addEventListener('keydown', (e) => {
     if (!isOpen) return;

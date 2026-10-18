@@ -131,8 +131,9 @@ export function initCake(): void {
     if (isExtinguished) return;
     isExtinguished = true;
 
-    // Stop mic if running
+    // Stop mic if running and reset button UI
     stopMic();
+    micBtn?.classList.remove('listening');
 
     // Hide flame
     if (flameGroup) {
@@ -183,11 +184,25 @@ export function initCake(): void {
     }
     if (controls) controls.style.display = 'flex';
     if (messageBox) messageBox.style.display = 'none';
+    if (micBtn) {
+      micBtn.classList.remove('listening');
+      const span = micBtn.querySelector('span');
+      if (span) span.textContent = CAKE_CONTENT.micButton;
+    }
     birthdayAudio.playTone(660, 0.4, 0, 0.15);
   }
 
-  // Tap button & direct flame tap
+  // Tap button & direct flame tap (pointerdown for zero latency)
+  tapBtn?.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    extinguishCandle();
+  });
   tapBtn?.addEventListener('click', extinguishCandle);
+
+  flameGroup?.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    extinguishCandle();
+  });
   flameGroup?.addEventListener('click', extinguishCandle);
 
   // Microphone detection
