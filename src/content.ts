@@ -311,19 +311,19 @@ export const CAKE_CONTENT = {
 
 /* ── Scene 8: Sincere Letter from Your Best Friend ── */
 export const LETTER_CONTENT = {
-  stationeryBadge: 'FROM THE HEART OF A BEST FRIEND',
+  stationeryBadge: 'एका जिवलग मित्राच्या मनातून',
   monogram: 'S',
-  date: 'October 19 · A Day to Celebrate You',
-  salutation: 'Dearest Surabhi,',
-  p1: 'Happy Birthday! Today is a celebration of who you are — not just for the high mountain you are climbing or the ambitious dream of public service you carry, but for the rare, thoughtful, and deeply compassionate person you are every single day.',
-  p2: 'I know how demanding this UPSC preparation is. I see the quiet discipline, the early mornings, the heavy revision cycles, and those long evenings when the syllabus feels endless and self-doubt creeps in unnoticed. It takes extraordinary courage to dedicate years to a goal where nothing is guaranteed, and I respect your effort more than words can express.',
-  p3: 'On days when the preparation feels exhausting, or when a mock test doesn’t go as you hoped, please remember this: one difficult day or one score will never define your worth. You are allowed to feel tired. You are allowed to take a break, step back, laugh, sleep well, and begin again with a fresh mind. Your intelligence, integrity, and warmth were never on trial.',
-  p4: 'I pray and sincerely hope with all my heart that next year brings your name proudly on that merit list. I want to see happy tears in your eyes and watch you reap the sweetest fruit of your relentless dedication. But whether that day arrives tomorrow or takes its own time, my care, respect, and loyalty as your best friend are unconditional. You are already someone to be deeply proud of.',
-  marathiParagraph: 'तुझी स्वप्नं पूर्ण होवोत; पण ती पूर्ण करताना स्वतःला हरवू नकोस. कारण तुझं हसणं, तुझं मन आणि तुझं असणंही तितकंच मौल्यवान आहे. तुझ्या स्वप्नांना पंख मिळावेत, तुझ्या मनाला शांतता लाभावी आणि कठीण दिवसांत तुला स्वतःची ताकद आठवत राहावी, एवढीच माझी प्रार्थना.',
-  closingWish: 'तुझ्या आयुष्यात यशासोबत समाधान, स्वप्नांसोबत शांतता आणि प्रत्येक नव्या दिवसासोबत जगण्याचा आनंद येवो.',
-  signoff: 'With endless pride, unwavering belief, and lifelong friendship,',
-  signature: 'Your Best Friend',
-  replayText: '↺ Walk the Shore Again from Beginning',
+  date: '१९ ऑक्टोबर · तुझा खास दिवस',
+  salutation: 'प्रिय सुरभी,',
+  p1: 'वाढदिवसाच्या मनापासून खूप खूप शुभेच्छा! आजचा हा दिवस केवळ तू सुरू केलेल्या खडतर प्रवासाचा किंवा तू उराशी बाळगलेल्या मोठ्या प्रशासकीय स्वप्नाचा उत्सव नाही; तर त्याहूनही अधिक, प्रत्येक दिवशी तू जी संयमी, विचारी आणि संवेदनशील व्यक्ती म्हणून जगतेस, तिचा हा आदरपूर्वक गौरव आहे.',
+  p2: 'या ध्येयाचा मार्ग किती आव्हानात्मक आहे, याची मला पूर्ण जाणीव आहे. तुझी ती पहाटेची शांत शिस्त, सातत्याने चाललेली उजळणी आणि अभ्यासक्रम न संपणारा वाटतो तेव्हा स्वतःशी चाललेली रोजची लढाई मी जवळून पाहिली आहे. जिथे भविष्याची कोणतीही हमी नसते, तिथे स्वतःच्या क्षमतेवर विश्वास ठेवून वर्षानुवर्षे निष्ठेने कष्टांची पराकाष्ठा करण्यासाठी असामान्य धैर्याची गरज असते; आणि तुझ्या या प्रामाणिक प्रयत्नांबद्दल माझ्या मनात शब्दांत न मावणारा आदर आहे.',
+  p3: 'कधी अभ्यासाचा थकवा जाणवेल, एखादी टेस्ट अपेक्षेप्रमाणे जाणार नाही किंवा मनात अनपेक्षितपणे शंकांचे मळभ दाटून येईल, तेव्हा फक्त एक गोष्ट स्वतःला आठवण करून दे—एखादा कठीण दिवस किंवा एखादा कमी आलेला गुण तुझ्या अस्तित्वाची आणि क्षमतेची व्याख्या कधीच करू शकत नाही. तुला थकायचा, विश्रांती घ्यायचा, मनापासून हसायचा, शांत झोपायचा आणि नव्या उमेदीने पुन्हा सुरुवात करायचा पूर्ण अधिकार आहे. तुझी बुद्धिमत्ता, तुझी निष्ठा आणि तुझ्या मनातली संवेदनशीलता कोणत्याही परीक्षेच्या पलीकडची आहे.',
+  p4: 'येणाऱ्या वर्षात त्या गुणवत्ता यादीत तुझं नाव अभिमानाने झळकावं, तुझ्या डोळ्यांत कष्टांचं चीज झाल्याचे आनंदाश्रू दिसावेत आणि तुझ्या अविरत तपश्चर्येला सर्वोत्तम फळ मिळावं, हीच माझी मनापासून प्रार्थना आहे. ते यश उद्या मिळो वा काही वेळाने, एक खरा मित्र म्हणून माझा विश्वास, आदर आणि पाठिंबा तुझ्या पाठीशी अखंड राहील. कारण तू आधीच स्वतःला घडवून एक अत्यंत आदर्श आणि अभिमानास्पद व्यक्ती बनली आहेस.',
+  marathiParagraph: 'स्वप्नांच्या मागे धावताना स्वतःला विसरू नकोस; कारण तुझं हसणं, तुझं शांत मन आणि तुझं अस्तित्व हे कोणत्याही यशापेक्षा अधिक मौल्यवान आहे.',
+  closingWish: 'तुझ्या आयुष्यात यशासोबत आंतरिक समाधान, ज्ञानासोबत मनःशांती आणि प्रत्येक नव्या दिवसासोबत स्वतःवरचा अतूट विश्वास वृद्धिंगत होत राहो.',
+  signoff: 'तुझ्या कर्तृत्वाचा सार्थ अभिमान आणि अखंड स्नेहादरासह,',
+  signature: 'तुझा खरा मित्र',
+  replayText: '↺ पुन्हा पहिल्यापासून सुरू करा',
 };
 
 // Backwards compatibility aliases

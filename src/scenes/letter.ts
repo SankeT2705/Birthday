@@ -32,8 +32,8 @@ export function renderLetter(): string {
           <span class="letter-name serif">Surabhi</span>
         </div>
 
-        <article class="letter-body">
-          <h4 class="letter-salutation serif">${LETTER_CONTENT.salutation}</h4>
+        <article class="letter-body devanagari">
+          <h4 class="letter-salutation devanagari">${LETTER_CONTENT.salutation}</h4>
 
           <p class="letter-para">${LETTER_CONTENT.p1}</p>
           <p class="letter-para">${LETTER_CONTENT.p2}</p>
@@ -47,15 +47,15 @@ export function renderLetter(): string {
             </p>
           </div>
 
-          <p class="letter-closing-wish devanagari serif">
+          <p class="letter-closing-wish devanagari">
             "${LETTER_CONTENT.closingWish}"
           </p>
         </article>
 
         <footer class="letter-footer">
-          <p class="letter-signoff handwritten">${LETTER_CONTENT.signoff}</p>
-          <p class="letter-signature handwritten"><strong>${LETTER_CONTENT.signature}</strong></p>
-          <p class="letter-birthday serif devanagari">वाढदिवसाच्या खूप खूप शुभेच्छा सुरभी! 🌊✨</p>
+          <p class="letter-signoff devanagari">${LETTER_CONTENT.signoff}</p>
+          <p class="letter-signature devanagari"><strong>${LETTER_CONTENT.signature}</strong></p>
+          <p class="letter-birthday devanagari">वाढदिवसाच्या खूप खूप शुभेच्छा सुरभी! 🌊✨</p>
         </footer>
       </div>
 
