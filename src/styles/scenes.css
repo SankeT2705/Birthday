@@ -2126,12 +2126,7 @@
     width: min(460px, calc(100vw - 16px));
   }
 
-  /* Sound Toggle */
-  #sound-toggle {
-    width: 40px;
-    height: 40px;
-    font-size: 1.1rem;
-  }
+
 
   /* Scroll Progress */
   #scroll-progress {

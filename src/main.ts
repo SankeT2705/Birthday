@@ -7,7 +7,6 @@
 import './styles/base.css';
 
 import { initScroll, getLenis } from './core/scroll';
-import { birthdayAudio } from './audio';
 import { initSeaRenderer } from './gl/renderer';
 
 // Scenes in chronological narrative order
@@ -27,11 +26,6 @@ const app = document.getElementById('app')!;
 app.innerHTML = `
   <!-- Top Scroll Progress Indicator -->
   <div id="scroll-progress" aria-hidden="true"></div>
-
-  <!-- Persistent Sound Toggle (Glassmorphism Pill) -->
-  <button id="sound-toggle" class="glass" aria-label="Toggle ambient music" title="Toggle Sound">
-    <span id="sound-icon">🎵</span>
-  </button>
 
   <!-- Living Shoreline Backdrop (Three.js WebGL Sea + Night to Sunrise transition) -->
   <div id="shore-backdrop" aria-hidden="true">
@@ -86,8 +80,6 @@ const lenis = getLenis();
 const backdropEl = document.getElementById('shore-backdrop');
 const bgSunrise = document.getElementById('shore-bg-sunrise');
 const bgNight = document.getElementById('shore-bg-night');
-const soundToggle = document.getElementById('sound-toggle');
-const soundIcon = document.getElementById('sound-icon');
 
 // Set relative background images for reliable cross-deployment loading
 if (bgNight) bgNight.style.backgroundImage = 'url("./sindhudurg_shore.jpg")';
@@ -135,14 +127,6 @@ if (lenis && bgSunrise && bgNight) {
     }
   });
 }
-
-// Sound toggle button
-soundToggle?.addEventListener('click', () => {
-  const active = birthdayAudio.toggle();
-  if (soundIcon) {
-    soundIcon.textContent = active ? '🔊' : '🎵';
-  }
-});
 
 // Initialize Scene Logic
 initGate(() => {

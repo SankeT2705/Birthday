@@ -198,28 +198,7 @@ h1, h2, h3 {
   border-radius: var(--radius-pill);
 }
 
-/* ── Sound toggle ── */
-#sound-toggle {
-  position: fixed;
-  top: calc(var(--space-3) + var(--safe-top));
-  right: calc(var(--space-3) + var(--safe-right));
-  z-index: var(--z-ui);
-  width: 48px;
-  height: 48px;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  color: var(--sand-100);
-  transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out);
-}
 
-#sound-toggle:hover {
-  opacity: 0.8;
-  transform: scale(1.08);
-}
 
 /* ── Text utilities ── */
 .text-center  { text-align: center; }
