@@ -44,7 +44,7 @@ export interface MemoryItem {
 export const MEMORY_ITEMS: MemoryItem[] = [
   {
     id: 1,
-    photo: '/photos/Surabhi5.png',
+    photo: './photos/Surabhi5.png',
     title: 'Golden Grace & Radiance',
     badge: 'Pure Grace',
     date: 'Moments of Quiet Dignity',
@@ -55,7 +55,7 @@ export const MEMORY_ITEMS: MemoryItem[] = [
   },
   {
     id: 2,
-    photo: '/photos/Surabhi4.png',
+    photo: './photos/Surabhi4.png',
     title: 'Same Girl, Bigger Dreams',
     badge: 'The Visionary',
     date: 'Mornings of Dedication',
@@ -66,7 +66,7 @@ export const MEMORY_ITEMS: MemoryItem[] = [
   },
   {
     id: 3,
-    photo: '/photos/Surabhi1.jpg',
+    photo: './photos/Surabhi1.jpg',
     title: 'That Unstoppable Smile',
     badge: 'Warmth & Joy',
     date: 'A Heart That Lights the Room',
@@ -77,7 +77,7 @@ export const MEMORY_ITEMS: MemoryItem[] = [
   },
   {
     id: 4,
-    photo: '/photos/Surabhi2.jpg',
+    photo: './photos/Surabhi2.jpg',
     title: 'Quiet Strength & Resolve',
     badge: 'Inner Light',
     date: 'Evenings of Contemplation',
@@ -88,7 +88,7 @@ export const MEMORY_ITEMS: MemoryItem[] = [
   },
   {
     id: 5,
-    photo: '/photos/Surabhi3.jpg',
+    photo: './photos/Surabhi3.jpg',
     title: 'Walking Toward Wide Horizons',
     badge: 'Confidence',
     date: 'Stepping Forward with Faith',

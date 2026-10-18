@@ -8,6 +8,7 @@
 import { MEMORY_ITEMS } from '../content';
 import { birthdayAudio } from '../audio';
 import { onTilt } from '../core/tilt';
+import { getLenis } from '../core/scroll';
 
 export function renderBottles(): string {
   const bottleButtons = MEMORY_ITEMS.map((item, idx) => `
@@ -109,6 +110,9 @@ export function initBottles(): void {
     if (imgEl) {
       imgEl.src = item.photo;
       imgEl.alt = item.title;
+      imgEl.onerror = () => {
+        imgEl.style.opacity = '0.75';
+      };
     }
     if (titleEl) titleEl.textContent = item.title;
     if (dateEl) dateEl.textContent = item.date;
@@ -130,6 +134,8 @@ export function initBottles(): void {
   function openModal(index: number) {
     isOpen = true;
     updateCard(index);
+    getLenis()?.stop();
+    document.body.classList.add('modal-open');
     layer!.style.display = 'flex';
     layer!.setAttribute('aria-hidden', 'false');
     requestAnimationFrame(() => {
@@ -140,6 +146,8 @@ export function initBottles(): void {
 
   function closeModal() {
     isOpen = false;
+    getLenis()?.start();
+    document.body.classList.remove('modal-open');
     layer!.classList.remove('active');
     layer!.setAttribute('aria-hidden', 'true');
     setTimeout(() => {

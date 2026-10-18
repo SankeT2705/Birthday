@@ -205,7 +205,7 @@ export function initCarouselInteractions() {
     const memory = PHOTO_MEMORIES[idx];
     if (!memory || !lightbox || !lbImg) return;
 
-    lbImg.src = `/photos/${memory.photo}`;
+    lbImg.src = memory.photo;
     if (lbTitle) lbTitle.textContent = memory.title;
     if (lbNote) lbNote.textContent = memory.note;
 

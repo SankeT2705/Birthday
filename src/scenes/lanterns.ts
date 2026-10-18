@@ -6,6 +6,7 @@
 
 import { LANTERN_WISHES, MARATHI_GREETING } from '../content';
 import { birthdayAudio } from '../audio';
+import { getLenis } from '../core/scroll';
 
 export function renderLanterns(): string {
   // Render 12 lanterns with staggered positions and delays
@@ -89,6 +90,9 @@ export function initLanterns(): void {
     safeMrEl.textContent = `"${item.mr}"`;
     if (counterEl) counterEl.textContent = `Wish ${String(index + 1).padStart(2, '0')} of ${LANTERN_WISHES.length}`;
 
+    getLenis()?.stop();
+    document.body.classList.add('modal-open');
+
     safeOverlay.style.display = 'flex';
     safeOverlay.setAttribute('aria-hidden', 'false');
     safeOverlay.style.opacity = '0';
@@ -101,6 +105,8 @@ export function initLanterns(): void {
   }
 
   function hideWish() {
+    getLenis()?.start();
+    document.body.classList.remove('modal-open');
     safeOverlay.style.opacity = '0';
     setTimeout(() => {
       safeOverlay.style.display = 'none';

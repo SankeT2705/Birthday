@@ -1,7 +1,9 @@
 /* ─── Her Shore Base Styles ───────────────────────────────────────────────── */
 
 @import './tokens.css';
+@import './birthday.css';
 @import './scenes.css';
+
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -13,6 +15,8 @@ html {
   scroll-behavior: auto; /* Lenis handles scrolling */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -22,8 +26,25 @@ body {
   color: var(--sand-100);
   background: var(--night-900);
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+}
+
+body.gate-active, html.gate-active {
+  overflow: hidden !important;
+  touch-action: none !important;
+}
+
+body.modal-open, html.modal-open {
+  overflow: hidden !important;
+}
+
+button, a, input, [role="button"], .bottle, .lantern, .switch-btn, .stage-tab-btn {
+  touch-action: manipulation;
 }
 
 /* ── Lenis smooth scroll ── */
@@ -42,6 +63,8 @@ html.lenis, html.lenis body {
   position: relative;
   z-index: 10;
   width: 100%;
+  max-width: 100vw;
+  overflow-x: clip;
 }
 
 .scene {
@@ -52,9 +75,31 @@ html.lenis, html.lenis body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: clamp(36px, 6vw, 64px) 16px;
+  justify-content: safe center;
+  padding: clamp(64px, 8vw, 100px) clamp(16px, 4vw, 32px);
+  box-sizing: border-box;
+  overflow-x: clip;
 }
+
+@media (max-width: 768px) {
+  .scene {
+    min-height: auto;
+    padding: 64px 16px 56px;
+    justify-content: flex-start;
+  }
+}
+
+/* Scene header block used in all scenes */
+.scene-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: var(--space-4);
+  max-width: min(740px, 92vw);
+  width: 100%;
+}
+
 
 /* ── Sindhudurg Shore Backdrop ── */
 #shore-backdrop {
@@ -78,13 +123,11 @@ html.lenis, html.lenis body {
 }
 
 #shore-bg-night {
-  background-image: url('/sindhudurg_shore.jpg');
   opacity: 1;
   transform: scale(1.02);
 }
 
 #shore-bg-sunrise {
-  background-image: url('/sindhudurg_sunrise.jpg');
   opacity: 0;
   transform: scale(1.02);
 }

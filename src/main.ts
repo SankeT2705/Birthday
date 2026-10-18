@@ -86,6 +86,27 @@ const bgNight = document.getElementById('shore-bg-night');
 const soundToggle = document.getElementById('sound-toggle');
 const soundIcon = document.getElementById('sound-icon');
 
+// Set relative background images for reliable cross-deployment loading
+if (bgNight) bgNight.style.backgroundImage = 'url("./sindhudurg_shore.jpg")';
+if (bgSunrise) bgSunrise.style.backgroundImage = 'url("./sindhudurg_sunrise.jpg")';
+
+// Prevent unwanted mobile zoom gestures (pinch-zoom and double-tap zoom)
+document.addEventListener('gesturestart', (e) => {
+  e.preventDefault();
+});
+
+let lastTouchEnd = 0;
+document.addEventListener('touchend', (e) => {
+  const now = Date.now();
+  if (now - lastTouchEnd <= 300) {
+    const target = e.target as HTMLElement | null;
+    if (target && !target.matches('input, textarea, select')) {
+      e.preventDefault();
+    }
+  }
+  lastTouchEnd = now;
+}, { passive: false });
+
 // Initialize WebGL Living Sea, Starfield, and Moon
 const seaRenderer = backdropEl ? initSeaRenderer(backdropEl) : null;
 

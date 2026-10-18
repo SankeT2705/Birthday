@@ -1,51 +1,14 @@
-/* ─── Surabhi Birthday Web Experience — Fresh 1-Page Master Stylesheet ─── */
+/* ─── Surabhi Birthday Web Experience — Component Styles ─── */
+/* Note: Base variables, html, body and box-sizing are in tokens.css and base.css */
 
+/* Extra birthday-specific tokens not in tokens.css */
 :root {
-  --night-900: #070b1a;
   --night-800: #0d152c;
-  --sand-100:  #fdfaf4;
   --sand-200:  #f7eedf;
-  --sand-300:  #e7d8c5;
-  --gold-300:  #f6cf7a;
   --gold-400:  #e5b853;
   --gold-glow: rgba(246, 207, 122, 0.45);
-  --coral-400: #f2866b;
-  --sea-teal:  #2f7f86;
   --ink-900:   #101524;
-  --ink-800:   #1c2336;
-
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans:  'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-hand:  'Caveat', cursive;
-  --font-devanagari: 'Noto Sans Devanagari', sans-serif;
-
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 22px;
-  --radius-pill: 50px;
-
-  --shadow-card: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.12);
   --shadow-glow: 0 0 30px var(--gold-glow);
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
-}
-
-body {
-  font-family: var(--font-sans);
-  background-color: var(--night-900);
-  color: var(--sand-100);
-  line-height: 1.6;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
 }
 
 /* ── Typography Classes ── */

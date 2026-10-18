@@ -7,6 +7,7 @@
 import { GATE_CONTENT } from '../content';
 import { birthdayAudio } from '../audio';
 import { initTilt } from '../core/tilt';
+import { getLenis } from '../core/scroll';
 
 export function renderGate(): string {
   return `
@@ -31,6 +32,11 @@ export function initGate(onUnlock: () => void): void {
   const btn = document.getElementById('gate-btn');
   if (!gate) return;
 
+  // Lock scroll on body and Lenis while gate is active
+  document.body.classList.add('gate-active');
+  const lenis = getLenis();
+  lenis?.stop();
+
   let unlocked = false;
 
   const unlock = async () => {
@@ -51,6 +57,10 @@ export function initGate(onUnlock: () => void): void {
     gate.style.opacity = '0';
     gate.style.transform = 'scale(1.05)';
     gate.style.pointerEvents = 'none';
+
+    // 5. Restore scrolling
+    document.body.classList.remove('gate-active');
+    lenis?.start();
 
     setTimeout(() => {
       gate.remove();
